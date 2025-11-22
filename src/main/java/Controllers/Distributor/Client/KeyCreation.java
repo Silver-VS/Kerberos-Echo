@@ -1,0 +1,25 @@
+package Controllers.Distributor.Client;
+
+import Security.Model.KeyMethods;
+
+/**
+ * Key generation entry point for the Client (C).
+ * <p>
+ * This class is responsible for creating the long-term cryptographic keys
+ * used by the Client to communicate with the auth servers.
+ * The generated keys are stored under the {@code Security/SecretVault/Generated} directory.
+ * <p>
+ * In a real deployment this step would typically be performed once during
+ * provisioning or key rotation; in this educational project it is exposed
+ * as a standalone {@code main} method for clarity and manual control.
+ */
+public class KeyCreation {
+    public static void main(String[] args) throws Exception {
+
+        String projectPath = "D:\\Kerberos_Echo\\Kerberos";
+
+        String path4Keys = projectPath + "\\src\\main\\java\\Security\\SecretVault\\Generated\\";
+
+        KeyMethods.keyCreator(path4Keys, "Client");
+    }
+}

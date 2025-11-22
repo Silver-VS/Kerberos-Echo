@@ -208,22 +208,22 @@ Kerberos and is suitable for demonstrations of zero-trust ideas.
 Recommended reading order for the docs:
 
 1. **This introduction** – you are here.
-2. **`docs/architecture.md`**
+2. **[`docs/architecture.md`](architecture.md)**
    - High-level view of how the codebase is structured:
      - Controllers, Model, Security.
      - Relationship between Distributor and Kerberos phases.
 
-3. **`docs/secretvault.md`**
+3. **[`docs/SecretVault.md`](SecretVault.md)**
    - How keys are stored on disk.
    - Difference between `Generated/` and `Connection/`.
    - Naming conventions for `.key` files and what they represent.
 
-4. **`docs/protocol.md`**
+4. **[`docs/protocol.md`](protocol.md)**
    - Detailed mapping of each Kerberos step (AS-REQ, TGS-REQ, AP-REQ) to:
      - Specific classes (`ProcessRequest` and `RequestAccess`).
      - Concrete ticket fields and crypto operations.
 
-5. **`docs/running.md`**
+5. **[`docs/running.md`](running.md)**
    - Step-by-step instructions to:
      - Generate keys.
      - Start all services.

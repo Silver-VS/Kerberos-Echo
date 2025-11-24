@@ -3,31 +3,37 @@ package Controllers.Distributor.AS;
 import Security.Model.KeyMethods;
 
 /**
- * Key generation entry point for the Authentication Server (AS).
+ * Bootstrap utility for the Authentication Server (AS) cryptographic material.
  * <p>
- * This class is responsible for creating the long-term cryptographic keys
- * used by the AS. The generated keys are stored under the
- * {@code Security/SecretVault/Generated} directory.
- * <p>
- * In a real deployment this step would typically be performed once during
- * provisioning or key rotation; in this educational project it is exposed
- * as a standalone {@code main} method for clarity and manual control.
+ * This class belongs to the <em>Distributor phase</em> of the project.
+ * It is intended to be run once (or whenever you want to rotate keys) to
+ * generate the RSA key pair for the AS and store it under:
+ *
+ * <pre>
+ *   Security/SecretVault/Generated/publicAS.key
+ *   Security/SecretVault/Generated/privateAS.key
+ * </pre>
+ *
+ * In a multi-node deployment, this class would be executed only on the
+ * machine hosting the AS.
+ *
+ * The corresponding symmetric keys used for communication with other
+ * principals (Client, TGS) are established later via the Sender/Receiver
+ * classes and {@link Model.KeyDistributor}.
+ *
+ * This class does not take command-line arguments. Paths are currently
+ * hardcoded for demonstration purposes; adjust {@code projectPath} as needed.
  *
  * @author Silver-VS
  */
 public class KeyCreation {
 
     /**
-     * Generates the key material for the Authentication Server (AS).
-     * <p>
-     * Currently the base project path is hardcoded, and keys are written to:
-     * {@code <projectPath>/src/main/java/Security/SecretVault/Generated/}.
-     * <p>
-     * Future enhancement: read the project path from command-line arguments
-     * or configuration (e.g. under {@code resources/}) instead of hardcoding it.
+     * Generates an RSA key pair for the Authentication Server (AS) and writes
+     * it into the {@code SecretVault/Generated} directory.
      *
      * @param args not used
-     * @throws Exception if key generation fails for any reason
+     * @throws Exception if key generation or file I/O fails
      */
     public static void main(String[] args) throws Exception {
 

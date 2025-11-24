@@ -52,7 +52,7 @@ public class KeyMethods {
 
         saveKey(keyPair.getPublic(), publicAddress);
         saveKey(keyPair.getPrivate(), privateAddress);
-        System.out.println("Llave del " + whoAreYou + " fue creada exitosamente.");
+        System.out.println(whoAreYou + " key has been successfully created.");
     }
 
     /**
